@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blocks+ Extension Gallery</title>
+    <link rel="stylesheet icon" href="img/icon4.ico">
+    <meta name="theme-color" content="#ff4c4c">
+    <meta name="description" content="The official place to find powerful unsandboxed extensions for TurboWarp.">
+    <style>
+      :root {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color-scheme: light dark;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color: #eee;
+          background: #111;
+        }
+        a {
+          color: #56b2ff;
+        }
+        a:visited {
+          color: #f192ff;
+        }
+        a:active {
+          color: red;
+        }
+        .invert-dark {
+          filter: invert(100%);
+        }
+      }
+
+      h1 {
+        margin: 16px 0;
+      }
+      h2, p {
+        margin: 8px 0;
+      }
+
+      .section {
+        max-width: 928px;
+        margin: 16px auto;
+      }
+
+      .header h1 {
+        font-size: 2.3em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: normal;
+        text-align: center;
+      }
+      .header svg {
+        width: 56px;
+        height: 56px;
+        flex-shrink: 0;
+        margin: 0 8px 0 0;
+      }
+
+      .warning {
+        padding: 8px;
+        margin: 8px 0;
+        border-radius: 8px;
+        background: rgba(255, 0, 0, 0.245);
+        border: 1px solid rgba(255, 0, 0, 0.604);
+      }
+
+      .development-tools {
+        padding: 8px;
+        margin: 8px 0;
+        border-radius: 8px;
+        background: rgba(200, 0, 255, 0.245);
+        border: 1px solid rgba(234, 0, 255, 0.604);
+      }
+      .development-tools h2 {
+        font-size: 1em;
+      }
+
+      .extensions {
+        display: -ms-grid;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 16px -4px;
+      }
+      @media (max-width: 944px) {
+        .extensions {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 650px) {
+        .extensions {
+          grid-template-columns: 1fr;
+        }
+      }
+      .extension {
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        margin: 4px;
+        overflow: hidden;
+      }
+      @media (prefers-color-scheme: dark) {
+        .extension {
+          border-color: #333;
+        }
+      }
+      .extension img {
+        width: 100%;
+        /* TODO: see if there's another way to do this that works in older browsers too */
+        aspect-ratio: 2 / 1;
+      }
+      .extension > *:not(img) {
+        margin: 8px;
+      }
+
+      .buttons {
+        display: flex;
+        width: 100%;
+      }
+      .buttons > * {
+        padding: 8px;
+        background-color: #4c97ff;
+        border-radius: 8px;
+      }
+      .buttons > *:active {
+        opacity: 0.8;
+      }
+      .buttons .copy {
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        margin: 0 8px 0 0;
+        color: white;
+      }
+      .buttons .open {
+        text-decoration: none;
+        background-color: #ff4c4c;
+        color: white;
+      }
+
+      footer {
+        opacity: 0.8;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      footer p {
+        margin: 0 0 8px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="section header">
+      <h1>
+        <div><img src="img/icon1.ico" width="50"></div>
+        <div>&nbsp; Blocks+ 扩展库</div>
+      </h1>
+
+      <p>本站提供包括 <a href="https://extensions.turbowarp.org/" target="_blank">TurboWarp Extension Gallery</a> 在内的等各个网站、团队、个人制作的TurboWarp扩展汉化以及简单有趣的原创小扩展</p>
+      <p>欢迎任何友好的朋友<a href="" target="_blank">投稿</a>原创或是本站未收取的扩展作品，亦或是<a href="" target="_blank">帮助我们</a> :)</p>
+      <p class="warning">本网站的扩展与 Scratch 不兼容，使用这些扩展的项目<b>不能上传到 Scratch 网站</b></p>
+      <p class="warning">除非您下载<a href="TurboWarp-Setup-1.7.0-beta.2-x64_6.zip" target="_blank"> TurboWarpv1.7.0-beta.2 安装包</a>，否则此本站上列出的扩展<b>将无法在桌面应用程序中运行</b></p>
+      <p class="warning">本网站的扩展与大部分都已接受过全面的针对安全性的审查，但不能保证不会出现<b>危害您计算机的扩展</b></p>
+    </div>
+
+    
+
+    
+
+    <script>
+      document.addEventListener('click', function (e) {
+        var toCopy = e.target.getAttribute('data-copy');
+        if (toCopy) {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(toCopy);
+          } else {
+            var input = document.createElement('input');
+            input.value = toCopy;
+            input.style.top = '0';
+            input.style.left = '0';
+            input.style.position = 'fixed';
+            document.body.appendChild(input);
+            input.focus();
+            input.select();
+            try {
+              document.execCommand('copy');
+            } catch (e) {
+              console.error(e);
+            }
+            document.body.removeChild(input);
+            e.target.focus();
+          }
+        }
+      });
+    </script>
+
+    <div class="section">
+      
+
+      <div class="extensions">
+        <div class="extension">
+          <img loading="lazy" src="static/picture/B  (1).png">
+          <h2>网页交互</h2>
+          <p>待填写</p>
+          
+        <div class="buttons">
+          <button class="copy" data-copy="https://blocks.netlify.app/PageIN.js">复制URL</button>
+          <a href="https://turbowarp.org/editor?extension=https://blocks.netlify.app/PageIN.js" target="_blank" class="open">在线加载</a>
+        </div>
+      
+
+      </div>
+    </div>
+
+    <footer class="section">
+      <p>Blocks+ 不隶属于 TurboWarp、TurboWarp 团队、 Scratch、Scratch 团队或 Scratch 基金会。</p>
+      <div class="links">
+        <p>站外链接：<a href="https://docs.turbowarp.org/development/custom-extensions" target="_blank">扩展开发者文档-TurboWarp</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
