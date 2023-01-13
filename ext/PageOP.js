@@ -77,6 +77,48 @@
         }
       },
       {
+        opcode: 'img',
+        blockType: Scratch.BlockType.COMMAND,
+        text: '从 [src] 获取图片并设置幕布高 [height] 宽 [width] ',
+        arguments: {
+          src: {
+            type: Scratch.ArgumentType.NUMBER,
+            defaultValue: 'https://blocksext.netlify.app/ext/Blocks+.png'
+          },
+          height: {
+            type: Scratch.ArgumentType.NUMBER,
+            defaultValue: '500'
+          },
+          width: {
+            type: Scratch.ArgumentType.NUMBER,
+            defaultValue: '500'
+          }
+          }
+      },
+      {
+        opcode: 'iframe',
+        blockType: Scratch.BlockType.COMMAND,
+        text: '将 [src] 嵌入并设置幕布高 [height] 宽 [width] ',
+        arguments: {
+          src: {
+            type: Scratch.ArgumentType.NUMBER,
+            defaultValue: 'https://blocksext.netlify.app/'
+          },
+          height: {
+            type: Scratch.ArgumentType.NUMBER,
+            defaultValue: '500'
+          },
+          width: {
+            type: Scratch.ArgumentType.NUMBER,
+            defaultValue: '350'
+          },
+          frame: {
+            type: Scratch.ArgumentType.NUMBER,
+            defaultValue: '1'
+          }
+          }
+      },
+      {
       opcode: 'Print',
       blockType: Scratch.BlockType.COMMAND,
       text: '命令 [t]',
@@ -104,16 +146,22 @@
     }
 }
   h(args) {
-        document.write( '<h' + args.n + '>' + args.t + '</h' + args.n + '>' )
+    document.write( '<h' + args.n + '>' + args.t + '</h' + args.n + '>' )
   }
   p(args) {
-        document.write( '<p>' + args.t + '</p>' )
+    document.write( '<p>' + args.t + '</p>' )
   }
-  br(args) {
-        document.write( '<br/>' )
+  br() {
+    document.write( '<br/>' )
   }
   Print(args) {
-        document.write( args.t )
+    document.write( args.t )
+  }
+  img(args) {
+    document.write( '<img src="' + args.src + '" width="' + args.width + '" height="' + args.height + '"></img>' )
+  }
+  iframe(args) {
+    document.write( '<iframe src="' + args.src + '" width="' + args.width + '" height="' + args.height + '"  frameborder="' + Boolean(args.frame) + '"></iframe>' )
   }
   }
   Scratch.extensions.register(new StrictEqualityExtension());
