@@ -4,7 +4,7 @@
 	getInfo() {
 	  return {
 		  id: 'pageop', 
-		  name: '网页输出',
+		  name: 'HTML修改',
       color1: '#29beb8',
       color2: '#308986',
       color3: '#308986',
