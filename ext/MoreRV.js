@@ -3,8 +3,8 @@
     class StrictEqualityExtension {
       getInfo() {
         return {
-            id: 'morebool', 
-            name: '更多比较',
+            id: 'morerv', 
+            name: '更多返回值',
             color1: '#29beb8',
       color2: '#308986',
       color3: '#308986',
@@ -21,59 +21,15 @@
               "---",
         
               {
-                opcode: "beef1",
+                opcode: 'ret',
+        
                 blockType: Scratch.BlockType.REPORTER,
-                text: "[a] >= [b]",
+        
+                text: '[a]',
                 arguments: {
                   a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
-                  },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
-                  }
-                }
-              },{
-                opcode: "beef2",
-                blockType: Scratch.BlockType.REPORTER,
-                text: "[a] <= [b]",
-                arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
-                  },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
-                  }
-                }
-              },{
-                opcode: "beef5",
-                blockType: Scratch.BlockType.REPORTER,
-                text: "[a] == [b]",
-                arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
-                  },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
-                  }
-                }
-              },{
-                opcode: "beef7",
-                blockType: Scratch.BlockType.REPORTER,
-                text: "[a] != [b]",
-                arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
-                  },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: 'Blocks+'
                   }
                 }
               },
@@ -82,59 +38,35 @@
               "---",
         
               {
-                opcode: "beef3",
+                opcode: 'trueBlock',
                 blockType: Scratch.BlockType.BOOLEAN,
-                text: "[a] >= [b]",
+                text: 'true'
+              },{
+                opcode: 'falseBlock',
+                blockType: Scratch.BlockType.BOOLEAN,
+                text: 'false'
+              },{
+                opcode: 'StrToBool',
+        
+                blockType: Scratch.BlockType.BOOLEAN,
+        
+                text: '[STRING]',
                 arguments: {
-                  a: {
+                  STRING: {
                     type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
-                  },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
+                    defaultValue: 'true'
                   }
                 }
               },{
-                opcode: "beef4",
+                opcode: 'StrBeBool',
+        
                 blockType: Scratch.BlockType.BOOLEAN,
-                text: "[a] <= [b]",
+        
+                text: '[STRING]',
                 arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
-                  },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
-                  }
-                }
-              },{
-                opcode: "beef6",
-                blockType: Scratch.BlockType.BOOLEAN,
-                text: "[a] == [b]",
-                arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
-                  },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
-                  }
-                }
-              },{
-                opcode: "beef8",
-                blockType: Scratch.BlockType.BOOLEAN,
-                text: "[a] != [b]",
-                arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
-                  },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
+                  STRING: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: 'true'
                   }
                 }
               }
@@ -145,69 +77,22 @@
     website() {
       return "https://blocksext.netlify.app/"
     }
-    beef1(args) {
-        if (args.a >= args.b) {
-          return 1;
-        } else {
-          return 0;
-        }
-      }
-    
-      beef2(args) {
-        if (args.a <= args.b) {
-          return 1;
-        } else {
-          return 0;
-        }
-      }
-    
-      beef3(args) {
-        if (args.a >= args.b) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    
-      beef4(args) {
-        if (args.a <= args.b) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-      
-      beef5(args) {
-        if (args.a == args.b) {
-          return 1;
-        } else {
-          return 0;
-        }
-      }
-    
-      beef6(args) {
-        if (args.a == args.b) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-      
-      beef7(args) {
-        if (args.a != args.b) {
-          return 1;
-        } else {
-          return 0;
-        }
-      }
-      
-      beef8(args) {
-        if (args.a != args.b) {
-          return true;
-        } else {
-          return false;
-        }
-      }
+    ret({a}) {
+      return a;
+    }
+    trueBlock() {
+      return true;
+    }
+  
+    falseBlock() {
+      return false;
+    }
+    StrToBool({STRING}) {
+      return Boolean(STRING);
+    }
+    StrBeBool({STRING}) {
+      return STRING;
+    }
     }
     Scratch.extensions.register(new StrictEqualityExtension());
   })(Scratch);

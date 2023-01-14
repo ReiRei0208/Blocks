@@ -3,8 +3,8 @@
     class StrictEqualityExtension {
       getInfo() {
         return {
-            id: 'morebool', 
-            name: '更多比较',
+            id: 'texttool', 
+            name: '文本工具',
             color1: '#29beb8',
       color2: '#308986',
       color3: '#308986',
@@ -21,120 +21,114 @@
               "---",
         
               {
-                opcode: "beef1",
+                opcode: "repeat",
                 blockType: Scratch.BlockType.REPORTER,
-                text: "[a] >= [b]",
+                text: "将 [STRING] 重复 [REPEAT] 遍",
                 arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
+                  STRING: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: "blocks "
                   },
-                  b: {
+                  REPEAT: {
                     type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
+                    defaultValue: 3
                   }
                 }
               },{
-                opcode: "beef2",
+                opcode: "indexof",
                 blockType: Scratch.BlockType.REPORTER,
-                text: "[a] <= [b]",
+                text: "第一个 [SUBSTRING] 在 [STRING] 的位置",
                 arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
+                  SUBSTRING: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: "b"
                   },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
+                  STRING: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: "blocks"
                   }
                 }
               },{
-                opcode: "beef5",
+                opcode: 'maketext',
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: '通过 [list] 随机生成 [length] 个字符',
+                    arguments: {
+                      list: {
+                        type: Scratch.ArgumentType.NUMBER,
+                        defaultValue: 'blocks'
+                      },
+                      length: {
+                        type: Scratch.ArgumentType.NUMBER,
+                        defaultValue: '3'
+                      }
+                    }
+                  },{
+                opcode: "change",
                 blockType: Scratch.BlockType.REPORTER,
-                text: "[a] == [b]",
+                text: "将 [STRING] 中的 [SUBSTRING] 替换为 [REPLACE]",
                 arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
+                  SUBSTRING: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: "World"
                   },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
+                  STRING: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: "Hello World!"
+                  },
+                  REPLACE: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: "Blocks+"
                   }
                 }
               },{
-                opcode: "beef7",
+                opcode: "count",
                 blockType: Scratch.BlockType.REPORTER,
-                text: "[a] != [b]",
+                text: "[SUBSTRING] 在 [STRING] 的个数",
                 arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
+                  SUBSTRING: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: "c"
                   },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
+                  STRING: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: "Blocks+ Extension Gallery"
                   }
                 }
-              },
-              
-                  
-              "---",
+              },{
+                opcode: "letters_of",
+                blockType: Scratch.BlockType.REPORTER,
+                text: "取字符串 [STRING] 中的第 [LETTER1] 个到第 [LETTER2] 个字符",
+                arguments: {
+                  LETTER1: {
+                    type: Scratch.ArgumentType.NUMBER,
+                    defaultValue: 1
+                  },
+                  LETTER2: {
+                    type: Scratch.ArgumentType.NUMBER,
+                    defaultValue: 5
+                  },
+                  STRING: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: "blocks"
+                  }
+                }
+              },{
+                opcode: 'iftext',
         
-              {
-                opcode: "beef3",
-                blockType: Scratch.BlockType.BOOLEAN,
-                text: "[a] >= [b]",
+                blockType: Scratch.BlockType.REPORTER,
+        
+                text: '如果 [A] 那么 [B] 否则 [C]',
                 arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
+                  A: {
+                    type: Scratch.ArgumentType.BOOLEAN
                   },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
-                  }
-                }
-              },{
-                opcode: "beef4",
-                blockType: Scratch.BlockType.BOOLEAN,
-                text: "[a] <= [b]",
-                arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
+                  B: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: 'Blocks+'
                   },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
-                  }
-                }
-              },{
-                opcode: "beef6",
-                blockType: Scratch.BlockType.BOOLEAN,
-                text: "[a] == [b]",
-                arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
-                  },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
-                  }
-                }
-              },{
-                opcode: "beef8",
-                blockType: Scratch.BlockType.BOOLEAN,
-                text: "[a] != [b]",
-                arguments: {
-                  a: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "0"
-                  },
-                  b: {
-                    type: Scratch.ArgumentType.NUMBER,
-                    defaultValue: "1"
+                  C: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: 'JavaScript'
                   }
                 }
               }
@@ -145,69 +139,59 @@
     website() {
       return "https://blocksext.netlify.app/"
     }
-    beef1(args) {
-        if (args.a >= args.b) {
-          return 1;
-        } else {
-          return 0;
+
+    _caseInsensitiveRegex(str) {
+		return new RegExp(
+			str.replaceAll(/[^a-zA-Z0-9]/g, "\\$&"),
+			"gi"
+		);
+	}
+    change(args) {
+        args.STRING = args.STRING.toString();
+        args.SUBSTRING = args.SUBSTRING.toString();
+        
+        args.REPLACE = args.REPLACE.toString();
+        
+        const regex = this._caseInsensitiveRegex(args.SUBSTRING);
+        
+        return args.STRING.replace(regex, args.REPLACE);
+    }
+    
+    repeat(args) {
+        args.STRING = args.STRING.toString();
+        args.REPEAT = Number(args.REPEAT) || 0;
+        return args.STRING.repeat(args.REPEAT);
+    }
+    maketext(args) {
+        let result = '';
+        for (let i = 0; i < args.length; i++) {
+          result += args.list[Math.floor(Math.random() * args.list.length)];
         }
+        return result;
+      }	
+    iftext({A, B, C}) {
+        return A ? B : C;
       }
     
-      beef2(args) {
-        if (args.a <= args.b) {
-          return 1;
-        } else {
-          return 0;
-        }
+    count(args) {
+    args.STRING = args.STRING.toString().toLowerCase();
+    args.SUBSTRING = args.SUBSTRING.toString().toLowerCase();
+    
+    return args.STRING.split(args.SUBSTRING).length - 1;
+    }
+    indexof(args) {
+        args.STRING = args.STRING.toString().toLowerCase();
+        args.SUBSTRING = args.SUBSTRING.toString().toLowerCase();
+        const found = args.STRING.indexOf(args.SUBSTRING);
+        return found === -1 ? 0 : found + 1;
       }
     
-      beef3(args) {
-        if (args.a >= args.b) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    
-      beef4(args) {
-        if (args.a <= args.b) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-      
-      beef5(args) {
-        if (args.a == args.b) {
-          return 1;
-        } else {
-          return 0;
-        }
-      }
-    
-      beef6(args) {
-        if (args.a == args.b) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-      
-      beef7(args) {
-        if (args.a != args.b) {
-          return 1;
-        } else {
-          return 0;
-        }
-      }
-      
-      beef8(args) {
-        if (args.a != args.b) {
-          return true;
-        } else {
-          return false;
-        }
-      }
+      letters_of(args) {
+                args.STRING = args.STRING.toString();
+                args.LETTER1 = Number(args.LETTER1) || 0;
+                args.LETTER2 = Number(args.LETTER2) || 0;
+                return args.STRING.substring(args.LETTER1 - 1, args.LETTER2);
+            }
     }
     Scratch.extensions.register(new StrictEqualityExtension());
   })(Scratch);
