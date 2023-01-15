@@ -7,7 +7,7 @@
         getInfo() {
             return {
                 id: 'Encoding',
-                name: '编码',
+                name: 'Encoding编码',
                 color1: '#6495ed',
                 color2: '#739fee',
                 color3: '#83aaf0',
