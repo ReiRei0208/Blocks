@@ -64,7 +64,7 @@
       }
       
     website() {
-      return "https://blocksext.netlify.app/"
+      return "https://blocksplus.netlify.app/"
     }
     bitwiseAnd({ LEFT, RIGHT }) {
         return LEFT & RIGHT;

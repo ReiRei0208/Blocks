@@ -42,7 +42,7 @@
          arguments: {
            a: {
             type: Scratch.ArgumentType.STRING,
-            defaultValue: 'https://blocksext.netlify.app/surprised.mp4'
+            defaultValue: 'https://blocksplus.netlify.app/surprised.mp4'
           }
         }
       },
@@ -53,7 +53,7 @@
         arguments: {
           a: {
             type: Scratch.ArgumentType.STRING,
-            defaultValue: 'https://blocksext.netlify.app/surprised.mp4'
+            defaultValue: 'https://blocksplus.netlify.app/surprised.mp4'
           }
         }
       }
@@ -77,7 +77,7 @@
     }
   }
   website() {
-    return "https://blocksext.netlify.app/"
+    return "https://blocksplus.netlify.app/"
   }
   }
   Scratch.extensions.register(new StrictEqualityExtension());

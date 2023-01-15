@@ -68,7 +68,7 @@
           return prompt(args.a);
     }
     website() {
-      return "https://blocksext.netlify.app/"
+      return "https://blocksplus.netlify.app/"
     }
     }
     Scratch.extensions.register(new StrictEqualityExtension());

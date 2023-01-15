@@ -60,7 +60,7 @@
       }
       
     website() {
-      return "https://blocksext.netlify.app/"
+      return "https://blocksplus.netlify.app/"
     }
     unicodeof(args) {
         const chars = Array.from(args.STRING.toString());

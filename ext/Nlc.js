@@ -91,7 +91,7 @@
       }
       
     website() {
-      return "https://blocksext.netlify.app/"
+      return "https://blocksplus.netlify.app/"
     }
     isCase1(args) {
         const string = args.STRING.toString();

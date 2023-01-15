@@ -70,7 +70,7 @@
       }
       
     website() {
-      return "https://blocksext.netlify.app/"
+      return "https://blocksplus.netlify.app/"
     }
     condis(args) {
       let dis = Math.sqrt(Math.pow(args.dx - args.x, 2) + Math.pow(args.dy - args.y, 2));

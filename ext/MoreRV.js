@@ -75,7 +75,7 @@
       }
       
     website() {
-      return "https://blocksext.netlify.app/"
+      return "https://blocksplus.netlify.app/"
     }
     ret({a}) {
       return a;

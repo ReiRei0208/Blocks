@@ -92,7 +92,7 @@
         arguments: {
           src: {
             type: Scratch.ArgumentType.NUMBER,
-            defaultValue: 'https://blocksext.netlify.app/Blocks+.png'
+            defaultValue: 'https://blocksplus.netlify.app/Blocks+.png'
           },
           height: {
             type: Scratch.ArgumentType.NUMBER,
@@ -111,7 +111,7 @@
         arguments: {
           src: {
             type: Scratch.ArgumentType.NUMBER,
-            defaultValue: 'https://blocksext.netlify.app/'
+            defaultValue: 'https://blocksplus.netlify.app/'
           },
           height: {
             type: Scratch.ArgumentType.NUMBER,
@@ -173,7 +173,7 @@
     document.write( '<iframe src="' + args.src + '" width="' + args.width + '" height="' + args.height + '"  frameborder="' + Boolean(args.frame) + '"></iframe>' )
   }
   website() {
-    return "https://blocksext.netlify.app/"
+    return "https://blocksplus.netlify.app/"
   }
   }
   Scratch.extensions.register(new StrictEqualityExtension());
